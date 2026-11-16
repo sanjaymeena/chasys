@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-harness"
+version = "0.1.0"
+description = "A provider-agnostic, extensible agentic framework built from scratch in Python"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "Sanjay Meena" },
+]
+keywords = ["ai", "agent", "llm", "cli", "tool-use", "provider-agnostic"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "litellm>=1.50.0",       # Provider-agnostic LLM calls
+    "rich>=13.0.0",          # Terminal UI
+    "prompt-toolkit>=3.0.0", # Input handling
+    "pydantic>=2.0.0",       # Data validation
+    "pydantic-settings>=2.0.0", # Settings management
+    "python-dotenv>=1.0.0",  # .env file support
+    "structlog>=24.0.0",     # Structured logging
+    "tiktoken>=0.7.0",       # Token counting (OpenAI tokenizer)
+    "click>=8.0.0",          # CLI framework
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "mypy>=1.10.0",
+    "ruff>=0.5.0",
+    "pre-commit>=3.0.0",
+]
+
+[project.scripts]
+agent-harness = "agent_harness.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/custom-agent-harness"
+Repository = "https://github.com/yourusername/custom-agent-harness"
+Blog = "https://yourblog.com/series/building-ai-agent-from-scratch"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agent_harness"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
