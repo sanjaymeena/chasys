@@ -1,16 +1,16 @@
-# Blog Series: Building an AI Agent from Scratch
+# Blog Series: Building Chasys from Scratch
 
-> A 10-part series documenting the journey of building a provider-agnostic agentic harness from zero.
+> A 10-part series documenting the journey of building a provider-agnostic AI harness from zero.
 
 ---
 
 ## Series Overview
 
-In this series, we build a complete AI agent harness from scratch — no frameworks, no magic. By the end, we have a tool as capable as Claude Code or OpenAI Codex CLI, but fully open-source and provider-agnostic.
+In this series, we build Chasys — a complete AI harness from scratch. No frameworks, no magic. By the end, we have infrastructure as capable as Claude Code or OpenAI Codex CLI, but fully open-source and provider-agnostic. Chasys is the chassis you use to build AI applications, not another agent product.
 
 Each post covers one concrete step: what we're building, why it matters, the key concepts, and the implementation. Every post ends with a working system you can run.
 
-**Target audience:** Developers who want to understand how AI agents actually work under the hood.
+**Target audience:** Developers who want to understand how AI infrastructure actually works under the hood.
 
 ---
 

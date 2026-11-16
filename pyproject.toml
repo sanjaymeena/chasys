@@ -3,16 +3,16 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "agent-harness"
+name = "chasys"
 version = "0.1.0"
-description = "A provider-agnostic, extensible agentic framework built from scratch in Python"
+description = "The chassis for AI applications — a provider-agnostic, extensible harness built from scratch in Python"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"
 authors = [
     { name = "Sanjay Meena" },
 ]
-keywords = ["ai", "agent", "llm", "cli", "tool-use", "provider-agnostic"]
+keywords = ["ai", "harness", "llm", "cli", "tool-use", "provider-agnostic", "infrastructure"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -44,15 +44,15 @@ dev = [
 ]
 
 [project.scripts]
-agent-harness = "agent_harness.cli:main"
+chasys = "chasys.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/custom-agent-harness"
-Repository = "https://github.com/yourusername/custom-agent-harness"
-Blog = "https://yourblog.com/series/building-ai-agent-from-scratch"
+Homepage = "https://github.com/yourusername/chasys"
+Repository = "https://github.com/yourusername/chasys"
+Blog = "https://yourblog.com/series/building-chasys-from-scratch"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/agent_harness"]
+packages = ["src/chasys"]
 
 [tool.mypy]
 python_version = "3.11"

@@ -1,8 +1,8 @@
-# Custom Agent Harness
+# Chasys
 
-> A provider-agnostic, extensible agentic framework built from scratch in Python.
+> The chassis for AI applications — a provider-agnostic, extensible harness built from scratch in Python.
 
-A powerful AI agent harness — think Claude Code or OpenAI Codex CLI — but **fully provider-agnostic** and **fully open-source**. Every line is written from scratch so you understand exactly how it works.
+A powerful AI harness — think Claude Code or OpenAI Codex CLI — but **fully provider-agnostic** and **fully open-source**. Chasys is the infrastructure you use to build AI applications, not another agent product. Every line is written from scratch so you understand exactly how it works.
 
 ## Features
 
@@ -27,27 +27,27 @@ pip install -e ".[dev]"
 cp .env.example .env
 # Edit .env with your API keys
 
-# Run the agent
-agent-harness --provider anthropic
+# Run the CLI
+chasys --provider anthropic
 ```
 
 ## Programmatic Usage
 
 ```python
-from agent_harness import Agent
+from chasys import Chasys
 
-# Create an agent with any provider
-agent = Agent(provider="openai/gpt-4o")
+# Create a harness with any provider
+harness = Chasys(provider="openai/gpt-4o")
 
 # Run a simple query
-response = agent.run("What is the capital of France?")
+response = harness.run("What is the capital of France?")
 
 # Run with tools
-agent = Agent(
+harness = Chasys(
     provider="anthropic/claude-sonnet-4-20250514",
     tools=["file_read", "file_write", "shell"],
 )
-response = agent.run("Create a hello.py script")
+response = harness.run("Create a hello.py script")
 ```
 
 ## Blog Series
@@ -56,13 +56,13 @@ This project is built as a 10-step learning journey. Each step adds one concrete
 
 | Step | Title | What You Build |
 |------|-------|----------------|
-| 1 | The Heartbeat | Agent execution loop, multi-provider abstraction, streaming, lifecycle state |
+| 1 | The Heartbeat | Harness execution loop, multi-provider abstraction, streaming, lifecycle state |
 | 2 | Giving It Hands | Tool registry, JSON schemas, function calling, async execution |
-| 3 | Making It a Code Agent | File read/write/edit, shell, grep/glob, workspace + git integration |
+| 3 | Making It a Code Harness | File read/write/edit, shell, grep/glob, workspace + git integration |
 | 4 | Guardrails | Permission policies, approval modes, sandbox, pre/post hooks, audit |
 | 5 | Memory Palace | Token accounting, context window, prompt assembly, compaction, session persistence |
 | 6 | Inner Monologue | Task decomposition, planning, checkpoints, reflection, replanning |
-| 7 | Team of Agents | Subagent spawning, isolated contexts, parallel execution, orchestration |
+| 7 | Team of Harnesses | Sub-harness spawning, isolated contexts, parallel execution, orchestration |
 | 8 | Long-Term Memory | Episodic/semantic memory, embeddings, retrieval, consolidation |
 | 9 | Universal Tools | MCP client, server discovery, auth, connection lifecycle |
 | 10 | Dashboard & Skills | Skill discovery/loading, reusable workflows, tracing, cost tracking, evals |
@@ -91,7 +91,7 @@ ruff check src/
 ┌─────────────────────────────────────────────┐
 │              CLI / Programmatic API          │
 ├─────────────────────────────────────────────┤
-│              Agent Core Loop                 │
+│              Chasys Core Loop                │
 │     (Plan → Act → Observe → Reflect)        │
 ├──────────┬──────────┬───────────────────────┤
 │ Provider │  Tools   │  Context Manager      │

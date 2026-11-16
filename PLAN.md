@@ -1,15 +1,15 @@
-# Custom Agentic Harness — Master Plan
+# Chasys — Master Plan
 
-> A provider-agnostic, extensible agentic framework built from scratch in Python.
+> The chassis for AI applications — a provider-agnostic, extensible harness built from scratch in Python.
 > Designed as a 10-step learning journey, each step producing a working system and a blog post.
 
 ---
 
 ## Vision
 
-Build an agentic harness **as powerful as Claude Code / OpenAI Codex CLI** — but fully provider-agnostic, fully open-source, and fully understood (every line written by you, no black-box frameworks).
+Build a harness **as powerful as Claude Code / OpenAI Codex CLI** — but fully provider-agnostic, fully open-source, and fully understood (every line written by you, no black-box frameworks). Chasys is the infrastructure you use to build AI applications, not another agent product.
 
-**Dual-mode**: CLI agent for interactive use + importable Python library for programmatic use in other projects.
+**Dual-mode**: CLI harness for interactive use + importable Python library for programmatic use in other projects.
 
 ---
 
@@ -480,16 +480,16 @@ src/agent_harness/
 ## Project Structure (Final)
 
 ```
-custom-agent-harness/
+chasys/
 ├── PLAN.md                    # This file
 ├── README.md                  # Project overview + quickstart
 ├── pyproject.toml             # Project config + dependencies
 ├── .env.example               # Environment variables template
 ├── src/
-│   └── agent_harness/
+│   └── chasys/
 │       ├── __init__.py        # Public API exports
 │       ├── cli.py             # CLI entry point (Rich + prompt_toolkit)
-│       ├── agent.py           # Core agent loop
+│       ├── core.py            # Core harness loop
 │       ├── types.py           # Shared types (Message, Role, etc.)
 │       ├── config.py          # Settings management
 │       ├── providers/         # Step 1: LLM provider abstraction
@@ -497,7 +497,7 @@ custom-agent-harness/
 │       ├── safety/            # Step 4: Permissions + approval
 │       ├── context/           # Step 5: Context window management
 │       ├── thinking/          # Step 6: Planning + reflection
-│       ├── agents/            # Step 7: Multi-agent delegation
+│       ├── harnesses/         # Step 7: Multi-harness delegation
 │       ├── memory/            # Step 8: Persistent memory
 │       ├── mcp/               # Step 9: MCP integration
 │       ├── skills/            # Step 10: Reusable workflows
@@ -532,8 +532,8 @@ Each blog post follows this template:
 
 ```bash
 # Install
-git clone https://github.com/yourusername/custom-agent-harness.git
-cd custom-agent-harness
+git clone https://github.com/yourusername/chasys.git
+cd chasys
 pip install -e ".[dev]"
 
 # Configure
@@ -541,13 +541,13 @@ cp .env.example .env
 # Add your API keys to .env
 
 # Run (CLI mode)
-agent-harness --provider anthropic
+chasys --provider anthropic
 
 # Use (programmatic)
-from agent_harness import Agent
+from chasys import Chasys
 
-agent = Agent(provider="openai/gpt-4o")
-response = agent.run("Hello, world!")
+harness = Chasys(provider="openai/gpt-4o")
+response = harness.run("Hello, world!")
 print(response)
 ```
 
@@ -555,14 +555,14 @@ print(response)
 
 ## Success Criteria
 
-By the end of Step 10, the harness should:
+By the end of Step 10, Chasys should:
 
 - [ ] Work with any LLM provider (OpenAI, Anthropic, Google, local)
 - [ ] Read/write files, run commands, search code, use git
 - [ ] Ask before doing dangerous things (approval modes, sandbox)
 - [ ] Handle long conversations without losing context (compaction, summarization)
 - [ ] Plan, reflect, replan, and self-correct
-- [ ] Delegate work to sub-agents with isolated contexts
+- [ ] Delegate work to sub-harnesses with isolated contexts
 - [ ] Remember things across sessions (episodic + semantic memory)
 - [ ] Connect to any MCP server for infinite tool extensibility
 - [ ] Load and run reusable skills (code review, refactoring, testing)
